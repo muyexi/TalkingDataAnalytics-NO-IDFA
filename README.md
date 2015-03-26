@@ -1,0 +1,1 @@
+CocoaPod for TalkingData-NO-IDFA
