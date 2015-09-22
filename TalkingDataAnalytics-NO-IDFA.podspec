@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TalkingDataAnalytics-NO-IDFA"
-  s.version          = "1.2.70"
+  s.version          = "1.3.94"
   s.summary          = "TalkingData analytics SDK without IDFA for iOS"
   s.homepage         = "https://www.talkingdata.com"
   s.license          = { :type => "Copyright", :text => "LICENSE Copyright  2011-2012 TalkingData.net, Inc. All rights reserved." }
