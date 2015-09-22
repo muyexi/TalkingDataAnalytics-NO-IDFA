@@ -1,12 +1,19 @@
 //
 //  TalkingData.h
-//  TalkingData Version 1.2.70
+//  TalkingData Version 1.3.94
 //
 //  Created by Biao Hou on 11-11-14.
 //  Copyright (c) 2011年 tendcloud. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+// 以下枚举用于WatchApp页面追踪
+typedef enum {
+    TDPageTypeGlance = 1,
+    TDPageTypeNotification = 2,
+    TDPageTypeWatchApp = 3
+} TDPageType;
 
 @interface TalkingData: NSObject
 
@@ -18,6 +25,14 @@
     @param 	channelId(可选) 	渠道名，如“app store”
  */
 + (void)sessionStarted:(NSString *)appKey withChannelId:(NSString *)channelId;
+
+/**
+ *	@method	initWithWatch:
+ *  初始化WatchApp统计实例，请在每个入口类的init方法里调用
+ *	@param 	appKey 	应用的唯一标识，统计后台注册得到
+ */
++ (void)initWithWatch:(NSString *)appKey;
+
 /**  
  @method getDeviceID
  获取TalkingData所使用的DeviceID
@@ -97,10 +112,20 @@
 + (void)trackPageBegin:(NSString *)pageName;
 
 /**
+ *	@method	trackPageBegin:withPageType:
+ *  开始跟踪WatchApp某一页面（可选），记录页面打开时间
+ 建议在willActivate方法里调用
+ *	@param 	pageName 	页面名称（自定义）
+ *  @param  pageType    页面类型（TDPageType枚举类型）
+ */
++ (void)trackPageBegin:(NSString *)pageName withPageType:(TDPageType)pageType;
+
+/**
  *	@method	trackPageEnd
  *  结束某一页面的跟踪（可选），记录页面的关闭时间
     此方法与trackPageBegin方法结对使用，
-    建议在viewWillDisappear或者viewDidDisappear方法里调用
+    在iOS应用中建议在viewWillDisappear或者viewDidDisappear方法里调用
+    在Watch应用中建议在DidDeactivate方法里调用
  *	@param 	pageName 	页面名称，请跟trackPageBegin方法的页面名称保持一致
  */
 + (void)trackPageEnd:(NSString *)pageName;
