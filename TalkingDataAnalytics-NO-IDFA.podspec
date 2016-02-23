@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.source_files = "TalkingData.h"
   s.preserve_paths = 'libTalkingData.a'
   s.libraries = 'TalkingData', 'z'
-  s.frameworks = 'CoreTelephony', 'Security'
+  s.frameworks = 'CoreTelephony', 'Security', 'CoreMotion'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "$(PODS_ROOT)/TalkingDataAnalytics-NO-IDFA/**" }
 end
