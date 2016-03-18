@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TalkingDataAnalytics-NO-IDFA"
-  s.version          = "2.1.21"
+  s.version          = "2.2.24"
   s.summary          = "TalkingData analytics SDK without IDFA for iOS"
   s.homepage         = "https://www.talkingdata.com"
   s.license          = { :type => "Copyright", :text => "LICENSE Copyright  2011-2012 TalkingData.net, Inc. All rights reserved." }
@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.requires_arc = false
 
-  s.source_files = "TalkingData.h"
+  s.source_files = "TalkingData.h", "TalkingDataSMS.h"
   s.preserve_paths = 'libTalkingData.a'
   s.libraries = 'TalkingData', 'z'
-  s.frameworks = 'CoreTelephony', 'Security', 'CoreMotion'
+  s.frameworks = 'CoreTelephony', 'Security', 'CoreMotion', 'SystemConfiguration'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "$(PODS_ROOT)/TalkingDataAnalytics-NO-IDFA/**" }
 end

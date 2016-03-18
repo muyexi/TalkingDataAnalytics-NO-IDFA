@@ -1,6 +1,6 @@
 //
 //  TalkingData.h
-//  TalkingData Version 2.1.17
+//  TalkingData Version 2.2.24
 //
 //  Created by Biao Hou on 11-11-14.
 //  Copyright (c) 2011年 tendcloud. All rights reserved.
@@ -150,5 +150,19 @@ typedef enum {
  *	@param 	key 	自定义事件的key
  */
 +(void)removeGlobalKV:(NSString*)key;
+
+/**
+ *  @method setDeviceToken              设置DeviceToken
+ *  @param  deviceToken                 从Apple获取的DeviceToken
+ */
++ (void)setDeviceToken:(NSData *)deviceToken;
+
+/**
+ *  @method handlePushMessage           处理来自TalkingData的Push消息
+ *  @param  message                     收到的消息
+ *  @return YES                         来自TalkingData的消息，SDK已处理
+ *          NO                          其他来源消息，开发者需自行处理
+ */
++ (BOOL)handlePushMessage:(NSDictionary *)message;
 
 @end
