@@ -1,6 +1,6 @@
 //
 //  TalkingData.h
-//  TalkingData Version 2.2.24
+//  TalkingData Version 2.2.27
 //
 //  Created by Biao Hou on 11-11-14.
 //  Copyright (c) 2011年 tendcloud. All rights reserved.
@@ -150,6 +150,8 @@ typedef enum {
  *	@param 	key 	自定义事件的key
  */
 +(void)removeGlobalKV:(NSString*)key;
+
++ (void)setiBeaconEnabled:(BOOL)enable;
 
 /**
  *  @method setDeviceToken              设置DeviceToken
